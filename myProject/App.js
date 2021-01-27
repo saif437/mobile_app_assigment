@@ -1,28 +1,89 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { View, StyleSheet, ScrollView } from 'react-native'
 
-class HelloWorldApp extends Component{
-  render()
-  {
-    return(
-      <View>
-        <Text>SayHello name="Saif Ali"</Text>
-        <Text>SayHello name="John"</Text>
-        <Text>SayHello name="Mike"</Text>
+class HelloWorldApp extends Component {
+  render () {
+    return (
+      <View style={styles.container}>
+        <ScrollView>
+          {/* two red sqaures */}
+          <View style={styles.square} />
+          <View style={styles.square} />
+
+          {/* blue rectangle */}
+          <View style={styles.rectangle} />
+
+          {/* two yellow sqaures */}
+          <View style={styles.square} />
+          <View style={styles.square} />
+
+          {/* orange rectangle */}
+          <View style={styles.rectangle} />
+
+          {/* two green sqaures */}
+          <View style={styles.square} />
+          <View style={styles.square} />
+
+          {/* blue rectangle */}
+          <View style={styles.rectangle} />
+
+          {/* two yellow sqaures */}
+          <View style={styles.square} />
+          <View style={styles.square} />
+
+          {/* orange rectangle */}
+          <View style={styles.rectangle} />
+
+          {/* two yellow sqaures */}
+          <View style={styles.square} />
+          <View style={styles.square} />
+
+          {/* orange rectangle */}
+          <View style={styles.rectangle} />
+
+          {/* two yellow sqaures */}
+          <View style={styles.square} />
+          <View style={styles.square} />
+
+          {/* orange rectangle */}
+          <View style={styles.rectangle} />
+
+          {/* two yellow sqaures */}
+          <View style={styles.square} />
+          <View style={styles.square} />
+
+          {/* orange rectangle */}
+          <View style={styles.rectangle} />
+        </ScrollView>
+
       </View>
-      );
+    )
   }
 }
 
-class SayHello extends Component{
-  render()
-  {
-    return(
-      <View>
-        <Text>Hello {this.props.name}</Text>
-      </View>
-      );
-  }
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
+    alignItems: 'center'
+  },
 
-export default HelloWorldApp;
+  square: {
+    width: 50,
+    height: 50,
+    backgroundColor: 'red',
+    marginTop: 50
+
+  },
+
+  rectangle: {
+    width: 100,
+    height: 50,
+    backgroundColor: 'orange',
+    marginTop: 50
+
+  }
+
+})
+
+export default HelloWorldApp
