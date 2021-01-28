@@ -1,89 +1,60 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, ScrollView } from 'react-native'
+import { Text, TextInput, View, TouchableOpacity, StyleSheet, Alert } from 'react-native'
 
-class HelloWorldApp extends Component {
+class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      email: 'email',
+      password: 'password',
+      isPasswordVisible: true
+    }
+  }
+
+  handleLogin = () => {
+    alert(this.state.email +  '\n'  + this.state.password)
+  } 
+
   render () {
     return (
-      <View style={styles.container}>
-        <ScrollView>
-          {/* two red sqaures */}
-          <View style={styles.square} />
-          <View style={styles.square} />
-
-          {/* blue rectangle */}
-          <View style={styles.rectangle} />
-
-          {/* two yellow sqaures */}
-          <View style={styles.square} />
-          <View style={styles.square} />
-
-          {/* orange rectangle */}
-          <View style={styles.rectangle} />
-
-          {/* two green sqaures */}
-          <View style={styles.square} />
-          <View style={styles.square} />
-
-          {/* blue rectangle */}
-          <View style={styles.rectangle} />
-
-          {/* two yellow sqaures */}
-          <View style={styles.square} />
-          <View style={styles.square} />
-
-          {/* orange rectangle */}
-          <View style={styles.rectangle} />
-
-          {/* two yellow sqaures */}
-          <View style={styles.square} />
-          <View style={styles.square} />
-
-          {/* orange rectangle */}
-          <View style={styles.rectangle} />
-
-          {/* two yellow sqaures */}
-          <View style={styles.square} />
-          <View style={styles.square} />
-
-          {/* orange rectangle */}
-          <View style={styles.rectangle} />
-
-          {/* two yellow sqaures */}
-          <View style={styles.square} />
-          <View style={styles.square} />
-
-          {/* orange rectangle */}
-          <View style={styles.rectangle} />
-        </ScrollView>
-
+      <View>
+        <TextInput style={styles.textInput} value={this.state.email} onChangeText={(email) => { this.setState({ email: email }) }} />
+        <TextInput style={styles.textInput} secureTextEntry={this.state.isPasswordVisible} value={this.state.password} onChangeText={(password) => { this.setState({ password: password }) }} />
+        <TouchableOpacity style={styles.buttonStyle} onPress={this.handleLogin} >
+          <Text style={styles.textStyle}> Log In</Text>
+        </TouchableOpacity>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-    alignItems: 'center'
+  textInput: {
+    paddingVertical: 8,
+    borderWidth: 4,
+    borderColor: 'black',
+    borderRadius: 6,
+    backgroundColor: 'grey',
+    marginTop: 60,
+    marginLeft: 20,
+    marginRight: 20
   },
 
-  square: {
-    width: 50,
-    height: 50,
-    backgroundColor: 'red',
-    marginTop: 50
-
+  buttonStyle: {
+    paddingVertical: 8,
+    borderWidth: 4,
+    borderColor: 'black',
+    borderRadius: 6,
+    marginTop: 30,
+    marginLeft: 100,
+    marginRight: 100
   },
 
-  rectangle: {
-    width: 100,
-    height: 50,
-    backgroundColor: 'orange',
-    marginTop: 50
-
+  textStyle: {
+    textAlign: 'center',
+    fontSize: 30,
+    fontWeight: 'bold'
   }
-
 })
 
-export default HelloWorldApp
+export default App
